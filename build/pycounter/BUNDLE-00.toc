@@ -1,1 +1,1 @@
-([('pycounter', '/Users/ojihun/PyCounter/dist/pycounter', 'EXECUTABLE')],)
+([('pycounter', '/Users/ojihun/DEV/PyCounter/dist/pycounter', 'EXECUTABLE')],)
