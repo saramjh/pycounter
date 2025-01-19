@@ -8,13 +8,14 @@
 
 - 항목 추가 및 이름 설정 (Add items and set their names)
 - 각 항목별 + 및 - 버튼을 통한 카운트 증감 (Increment/decrement count for each item using + and - buttons)
+- x 버튼으로 항목 삭제 (Delete an item on the list)
 - 항상 위 옵션 (Always on top option)
 
 ## 설치 및 실행(Installation and Use)
 
 1.  [프로그램 다운로드](https://github.com/saramjh/pycounter/archive/refs/heads/main.zip)에서 최신 릴리즈를 다운로드합니다. (Download the latest release from the [Program download](https://github.com/saramjh/pycounter/archive/refs/heads/main.zip).)
 2.  압축 파일(.zip 등)을 해제합니다. (Unzip the downloaded file (.zip, etc.).)
-3.  dist 디렉토리 내의 실행 파일(`pycounter` 또는 `pycounter.app`)을 실행합니다. (Run the executable file (`pycounter` or `pycounter.app`).)
+3.  dist 디렉토리 내의 실행 파일(윈도우용 `pycounter` 또는 맥용 `pycounter.app`)을 실행합니다. (Run the executable file (`pycounter` or `pycounter.app`).)
 
 또는, 파이썬이 설치되어 있는 경우 소스 코드를 직접 실행할 수 있습니다. (Alternatively, if Python is installed, you can run the source code directly.)
 

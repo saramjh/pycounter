@@ -18,13 +18,13 @@ def add_item():
             item_frame, text="X", width=3, command=delete_item)
         delete_button.pack(side='left')
 
-        label = ttk.Label(item_frame, text=item_name, anchor='w')
-        label.pack(side='left', fill='x', expand=True)
+        label = ttk.Label(item_frame, text=item_name,
+                          width=15)  # label width 수정
+        label.pack(side='left')
 
         count = 0
-        count_label = ttk.Label(
-            item_frame, text=str(count), width=5, anchor='e')
-        count_label.pack(side='right')
+        count_label = ttk.Label(item_frame, text=str(count), width=5)
+        count_label.pack(side='left')
 
         def increment():
             nonlocal count
@@ -35,12 +35,14 @@ def add_item():
             nonlocal count
             count -= 1
             count_label.config(text=str(count))
-        minus_button = ttk.Button(
-            item_frame, text="-", width=2, command=decrement)
-        minus_button.pack(side='right')
+
         plus_button = ttk.Button(item_frame, text="+",
-                                 width=2, command=increment)
-        plus_button.pack(side='right')
+                                 width=3, command=increment)
+        plus_button.pack(side='left')
+
+        minus_button = ttk.Button(
+            item_frame, text="-", width=3, command=decrement)
+        minus_button.pack(side='left')
 
         item_entry.delete(0, tk.END)
         update_item_order()
@@ -50,31 +52,38 @@ def toggle_topmost():
     root.attributes('-topmost', topmost_var.get())
 
 
+def on_drag_start(event):
+    widget = event.widget
+    widget._drag_start_y = event.y
+    widget._drag_start_index = items_frame.winfo_children().index(widget)
+
+
+def on_drag_motion(event):
+    widget = event.widget
+    y = event.y - widget._drag_start_y
+    if abs(y) > 5:  # 최소 이동 거리
+        index = items_frame.winfo_children().index(widget)
+        new_index = index + (1 if y > 0 else -1)
+        if 0 <= new_index < len(items_frame.winfo_children()):
+            items_frame.winfo_children()[index].pack_forget()
+            items_frame.winfo_children()[index].pack(
+                before=items_frame.winfo_children()[new_index], fill='x')
+            widget._drag_start_y = event.y
+
+
 def update_item_order():
     for i, child in enumerate(items_frame.winfo_children()):
         child.lift()
 
 
-def reset_counters():
-    for item_frame in items_frame.winfo_children():
-        count_label = item_frame.winfo_children()[2]
-        count_label.config(text="0")
-
-
 root = tk.Tk()
 root.title("카운터 프로그램")
 
-# 최상위 표시 체크박스 및 초기화 버튼 프레임
-top_frame = ttk.Frame(root, padding=5)
-top_frame.pack(fill='x')
-
-reset_button = ttk.Button(top_frame, text="카운터 숫자 초기화", command=reset_counters)
-reset_button.pack(side='left')
-
+# 최상위 표시 체크박스
 topmost_var = tk.BooleanVar()
 topmost_check = ttk.Checkbutton(
-    top_frame, text="항상 위", variable=topmost_var, command=toggle_topmost)
-topmost_check.pack(side='right')
+    root, text="항상 위", variable=topmost_var, command=toggle_topmost)
+topmost_check.pack(pady=(5, 5), padx=(10, 10), anchor='w')
 
 # 항목 추가 입력 부분
 add_frame = ttk.Frame(root, padding=10)
@@ -92,5 +101,8 @@ add_button.pack(side='left')
 # 항목 표시 부분
 items_frame = ttk.Frame(root, padding=10)
 items_frame.pack(fill='both', expand=True)
+
+root.bind("<B1-Motion>", on_drag_motion)
+root.bind("<ButtonPress-1>", on_drag_start)
 
 root.mainloop()
