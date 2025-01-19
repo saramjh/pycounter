@@ -12,9 +12,9 @@
 
 ## 설치 및 실행(Installation and Use)
 
-1.  [릴리즈 페이지](https://github.com/saramjh/pycounter.git)에서 최신 릴리즈를 다운로드합니다. (Download the latest release from the [releases page](https://github.com/saramjh/pycounter.git).)
+1.  [릴리즈 페이지](https://github.com/saramjh/pycounter#:~:text=with%20GitHub%20Desktop-,Download%20ZIP)에서 최신 릴리즈를 다운로드합니다. (Download the latest release from the [releases page](https://github.com/saramjh/pycounter#:~:text=with%20GitHub%20Desktop-,Download%20ZIP).)
 2.  압축 파일(.zip 등)을 해제합니다. (Unzip the downloaded file (.zip, etc.).)
-3.  dist디렉토리 내의 실행 파일(`pycounter` 또는 `pycounter.app`)을 실행합니다. (Run the executable file (`pycounter` or `pycounter.app`).)
+3.  dist 디렉토리 내의 실행 파일(`pycounter` 또는 `pycounter.app`)을 실행합니다. (Run the executable file (`pycounter` or `pycounter.app`).)
 
 또는, 파이썬이 설치되어 있는 경우 소스 코드를 직접 실행할 수 있습니다. (Alternatively, if Python is installed, you can run the source code directly.)
 
