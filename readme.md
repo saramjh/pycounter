@@ -2,7 +2,9 @@
 
 간단한 항목별 카운터 프로그램입니다. (A simple counter program for each item.)
 
-![프로그램 실행 화면 스크린샷 또는 GIF](screenshot.png) ## 기능 (Features)
+![프로그램 실행 화면 스크린샷 또는 GIF](screenshot.png)
+
+## 기능 (Features)
 
 - 항목 추가 및 이름 설정 (Add items and set their names)
 - 각 항목별 + 및 - 버튼을 통한 카운트 증감 (Increment/decrement count for each item using + and - buttons)
