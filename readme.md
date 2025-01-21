@@ -24,7 +24,7 @@
 
 1.  저장소를 클론합니다. (Clone the repository.)
     ```bash
-    git clone [https://github.com/saramjh/pycounter.git](https://github.com/saramjh/pycounter.git)
+    git clone https://github.com/saramjh/pycounter.git
     ```
 2.  필요한 라이브러리를 설치합니다. (Install required libraries.) (이 예제에서는 필요 없음)
     ```bash
@@ -54,3 +54,7 @@ pip install pyinstaller
 pyinstaller --onefile --windowed --icon=icon.icns pycounter.py # 아이콘이 있는 경우
 pyinstaller --onefile --windowed pycounter.py # 아이콘이 없는 경우
 ```
+
+## macOS에서 실행 문제 해결 (Resolving macOS Execution Issues)
+
+macOS에서 "Apple이 앱에 악성 소프트웨어가 있는지 확인할 수 없음" 경고가 나타날 경우, [이 블로그 글](https://blog.naver.com/sinnam88/223348280982)을 참고하여 문제를 해결할 수 있습니다. (If you encounter the "Apple cannot check app for malicious software" warning on macOS, you can refer to [this blog post](https://blog.naver.com/sinnam88/223348280982) for a solution.)
